@@ -8,6 +8,7 @@ type CallButtonSize = "md" | "lg";
 interface CallButtonProps {
   variant?: CallButtonVariant;
   size?: CallButtonSize;
+  fullWidth?: boolean;
   showNumber?: boolean;
   className?: string;
 }
@@ -15,6 +16,7 @@ interface CallButtonProps {
 export function CallButton({
   variant = "primary",
   size = "md",
+  fullWidth = false,
   showNumber = false,
   className,
 }: CallButtonProps) {
@@ -23,6 +25,7 @@ export function CallButton({
       href={siteConfig.phone.href}
       variant={variant}
       size={size}
+      fullWidth={fullWidth}
       className={className}
     >
       <Phone className="h-5 w-5" aria-hidden="true" />

@@ -9,6 +9,7 @@ interface WhatsAppButtonProps {
   message?: string;
   variant?: WhatsAppButtonVariant;
   size?: WhatsAppButtonSize;
+  fullWidth?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
@@ -17,6 +18,7 @@ export function WhatsAppButton({
   message,
   variant = "whatsapp",
   size = "md",
+  fullWidth = false,
   className,
   children,
 }: WhatsAppButtonProps) {
@@ -26,6 +28,7 @@ export function WhatsAppButton({
       external
       variant={variant}
       size={size}
+      fullWidth={fullWidth}
       className={className}
     >
       <FaWhatsapp className="h-5 w-5" aria-hidden="true" />

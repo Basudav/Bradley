@@ -15,7 +15,7 @@ export function GalleryFilterBar({
 }: GalleryFilterBarProps) {
   return (
     <div
-      role="tablist"
+      role="group"
       aria-label="Gallery category filters"
       className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-2 mb-8 sm:mb-12 justify-start sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0"
     >
@@ -24,8 +24,6 @@ export function GalleryFilterBar({
         return (
           <button
             key={cat.value}
-            role="tab"
-            aria-selected={isSelected}
             aria-pressed={isSelected}
             onClick={() => onSelectCategory(cat.value)}
             className={cn(

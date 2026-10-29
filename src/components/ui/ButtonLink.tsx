@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { MouseEventHandler } from "react";
 import { cn } from "@/lib/utils";
 
 const variantClasses = {
@@ -25,6 +26,7 @@ interface ButtonLinkProps {
   fullWidth?: boolean;
   children: React.ReactNode;
   className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export function ButtonLink({
@@ -35,6 +37,7 @@ export function ButtonLink({
   fullWidth = false,
   children,
   className,
+  onClick,
 }: ButtonLinkProps) {
   const classes = cn(
     "inline-flex items-center justify-center gap-2 rounded-xl font-semibold",
@@ -53,6 +56,7 @@ export function ButtonLink({
         target="_blank"
         rel="noopener noreferrer"
         className={classes}
+        onClick={onClick}
       >
         {children}
       </a>
@@ -62,14 +66,14 @@ export function ButtonLink({
   /* tel: and mailto: links render as plain <a> */
   if (href.startsWith("tel:") || href.startsWith("mailto:")) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} onClick={onClick}>
         {children}
       </a>
     );
   }
 
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} onClick={onClick}>
       {children}
     </Link>
   );
