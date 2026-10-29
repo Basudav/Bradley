@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: "Fredoka", sans-serif;
+    --font-body: "Lexend", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    line-height: 1.7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  /* Remove default focus outline and let Tailwind handle it */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Custom scrollbar-thin for mobile carousels */
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
